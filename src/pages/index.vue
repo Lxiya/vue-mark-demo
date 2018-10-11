@@ -28,6 +28,10 @@
 
 		<!-- index-right start -->
 		<div class="index-right">
+			<!-- slide start -->
+			<slide-show :slides='slides'></slide-show>
+			<!-- slide end -->
+
 			<div class="index-board-list">
 				<div class="index-board-list">
 					<div class="index-board-item" v-for="(item,index) in boardList" :class="[{'line-last':index%2!==0},'index-board-' + item.id]">
@@ -48,7 +52,13 @@
 </template>
 
 <script>
+// import child components
+import slideShow from "../components/slideShow";
+
 export default {
+	components: {
+		slideShow
+	},
 	data() {
 		return {
 			productList: {
@@ -145,6 +155,28 @@ export default {
 					id: "hill",
 					toKey: "publish",
 					saleout: false
+				}
+			],
+			slides: [
+				{
+					src: require("../assets/slideShow/pic1.jpg"),
+					title: "xxx1",
+					href: "detail/analysis"
+				},
+				{
+					src: require("../assets/slideShow/pic2.jpg"),
+					title: "xxx2",
+					href: "detail/count"
+				},
+				{
+					src: require("../assets/slideShow/pic3.jpg"),
+					title: "xxx3",
+					href: "http://xxx.xxx.com"
+				},
+				{
+					src: require("../assets/slideShow/pic4.jpg"),
+					title: "xxx4",
+					href: "detail/forecast"
 				}
 			]
 		};
