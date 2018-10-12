@@ -1,5 +1,5 @@
 <template>
-	<div>detail</div>
+    <div>Forecast</div>
 </template>
 
 <script>
@@ -8,4 +8,3 @@ export default {};
 
 <style>
 </style>
-
