@@ -24,13 +24,11 @@
 				</ul>
 			</div>
 		</div>
-		<!-- index-left end -->
 
 		<!-- index-right start -->
 		<div class="index-right">
 			<!-- slide start -->
-			<slide-show :slides='slides'></slide-show>
-			<!-- slide end -->
+			<slide-show :slides='slides' :inv=1000></slide-show>
 
 			<div class="index-board-list">
 				<div class="index-board-list">
@@ -46,14 +44,13 @@
 				</div>
 			</div>
 		</div>
-		<!-- index-right end -->
 
 	</div>
 </template>
 
 <script>
 // import child components
-import slideShow from "../components/slideShow";
+import slideShow from "../components/SlideShow";
 
 export default {
 	components: {

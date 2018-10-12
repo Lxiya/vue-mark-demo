@@ -6,30 +6,64 @@
 				<img src="../assets/logo.png" alt="">
 				<div class="head-nav">
 					<ul class="nav-list">
-						<li>登录</li>
+						<li @click="logClick">登录</li>
 						<li>|</li>
 						<li>注册</li>
 						<li>|</li>
-						<li>关于</li>
+						<li @click="aboutClick">关于</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<!-- head end -->
 
 		<!-- content start -->
 		<div class="app-content">
 			<router-view></router-view>
 		</div>
-		<!-- content end -->
 
 		<!-- footer start -->
 		<div class="app-foot">
 			<p>@ 2016 fishenal MIT</p>
 		</div>
-		<!-- footer end -->
+
+		<!-- dialog start -->
+		<my-dialog :isShow="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')"></my-dialog>
+		<my-dialog :isShow="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
+			<!-- logfrom start -->
+			<log-form></log-form>
+		</my-dialog>
 	</div>
 </template>
+
+<script>
+// import child components
+import myDialog from "../components/Dialog";
+import logForm from "../components/LogForm";
+
+export default {
+	components: {
+		myDialog,
+		logForm
+	},
+	data() {
+		return {
+			isShowAboutDialog: false,
+			isShowLogDialog: false
+		};
+	},
+	methods: {
+		aboutClick() {
+			this.isShowAboutDialog = true;
+		},
+		logClick() {
+			this.isShowLogDialog = true;
+		},
+		closeDialog(attr) {
+			this[attr] = false;
+		}
+	}
+};
+</script>
 
 <style>
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -200,6 +234,7 @@ body {
 .head-nav li {
 	cursor: pointer;
 	float: left;
+	margin: 0 10px;
 }
 .nav-pile {
 	padding: 0 10px;
@@ -231,33 +266,5 @@ body {
 }
 .button:hover {
 	background: #4fc08d;
-}
-.g-form {
-}
-.g-form-line {
-	padding: 15px 0;
-}
-.g-form-label {
-	width: 100px;
-	font-size: 16px;
-	display: inline-block;
-}
-.g-form-input {
-	display: inline-block;
-}
-.g-form-input input {
-	height: 30px;
-	width: 200px;
-	line-height: 30px;
-	vertical-align: middle;
-	padding: 0 10px;
-	border: 1px solid #ccc;
-}
-.g-form-btn {
-	padding-left: 100px;
-}
-.g-form-error {
-	color: red;
-	padding-left: 15px;
 }
 </style>
