@@ -24,7 +24,7 @@ export default {
 		return {
 			products: [
 				{
-					name: "数据统计",
+					name: "数据统计", 
 					path: "count"
 				},
 				{
