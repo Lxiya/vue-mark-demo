@@ -110,6 +110,16 @@
 
 
 <script>
+// import child components
+import vSelection from "../detail/childComponents/Selection";
+import vCounter from "../detail/childComponents/Counter";
+import vChooser from "../detail/childComponents/Chooser";
+import vMulChooser from "../detail/childComponents/MultiplyChooser";
+import myDialog from "../../components/Dialog";
+import bankChooser from "../detail/childComponents/BankChooser";
+import checkOrder from "../detail/childComponents/CheckOrder";
+import _ from "lodash";
+
 export default {
 	data() {
 		return {
@@ -166,6 +176,15 @@ export default {
 			isShowCheckOrder: false,
 			isShowErrDialog: false
 		};
+	},
+	components: {
+		vSelection,
+		vCounter,
+		vChooser,
+		vMulChooser,
+		myDialog,
+		bankChooser,
+		checkOrder
 	}
 };
 </script>
